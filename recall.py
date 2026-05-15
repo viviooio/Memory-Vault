@@ -149,6 +149,7 @@ def recall(query: str, top_k: int = 5, branch: str = None,
             "corrections": [relevant corrections — always included],
         }
     """
+    top_k = int(top_k) if top_k is not None else 5
     config = load_config()
     search_mode = "semantic"
     routing_confidence = 1.0
@@ -212,8 +213,11 @@ def recall(query: str, top_k: int = 5, branch: str = None,
 
     # 4. APPLY QUALITY FILTERS
     results = apply_quality_filters(results, config)
+    if not isinstance(results, list):
+        results = []
 
     # Limit to top_k
+    top_k = int(top_k)
     results = results[:top_k]
 
     # 5. ADD SUMMARY if we have one
