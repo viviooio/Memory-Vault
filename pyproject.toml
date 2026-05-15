@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vivioo-memory"
+version = "0.5.0"
+description = "Local, privacy-first memory system for AI agents. No cloud, no API keys, no vector DB required."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    {name = "Vivioo", email = "vivienne@vivioo.io"},
+]
+keywords = ["ai", "agents", "memory", "llm", "privacy", "local", "recall"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "cryptography>=41.0.0",
+]
+
+[project.optional-dependencies]
+vector = ["chromadb>=0.4.0"]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://vivioo.io"
+Repository = "https://github.com/Vivioo-io/Memory-Vault"
+Documentation = "https://github.com/Vivioo-io/Memory-Vault#readme"
+Issues = "https://github.com/Vivioo-io/Memory-Vault/issues"
+
+[tool.setuptools.packages.find]
+include = ["vivioo_memory*"]
+
+[tool.setuptools.package-data]
+vivioo_memory = ["config.json"]
